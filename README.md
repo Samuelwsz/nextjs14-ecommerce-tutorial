@@ -26,9 +26,11 @@ bun dev
 
 #### depois basta copiar o codigo do tema e substituir o tema padrão do shadcn no globals.css
 
-### comando fornecido pelo tutorial
+[button shadcn](https://ui.shadcn.com/docs/components/button)
 
-```
+## comando fornecido pelo tutorial
+
+```bash
 npm i stripe use-shopping-cart next-sanity @stripe/stripe-js @sanity/image-url --force
 ```
 
@@ -36,4 +38,43 @@ npm i stripe use-shopping-cart next-sanity @stripe/stripe-js @sanity/image-url -
 
 ```
 npm create sanity@latest -- --template clean --create-project "ecommerce tutorial" --dataset production
+```
+
+### Após a instalação e configuração do sanity vá para pasta do sanity e inicie o servidor de desenvolvimento para adicionar produtos
+
+```
+cd sanity
+```
+
+```
+npm run dev
+```
+
+### para conectar o sanity com o projeto na pasta app crie uma pasta lib/sanity.ts e em projectId cole o id do projeto usado
+
+```bash
+import { createClient } from "next-sanity"
+import imageUrlBuilder from "@sanity/image-url"
+
+export const client = createClient({
+  projectId: "id do projeto usado para conectar",
+  dataset: "production",
+  apiVersion: "2022-03-25",
+  useCdn: true,
+})
+
+const builder = imageUrlBuilder(client)
+
+export function urlFor(source: any) {
+  return builder.image(source)
+}
+
+```
+
+### Em next.config.mjs adicione o comando para aparecer as imagens do sanity
+
+```
+ images: {
+    domains: ["cdn.sanity.io"],
+  },
 ```
