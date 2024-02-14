@@ -1,8 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
+## Inciar servidor de desenvolvimento
 
 ```bash
 npm run dev
@@ -14,23 +10,30 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Link do tutorial](https://www.youtube.com/watch?v=UnwmPuPdhFc&t=709s&ab_channel=JanMarshal)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologias usadas
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p>React</p>
+<p>Tailwind</p>
+<p></p>
 
-## Learn More
+## [shadcn/ui](https://ui.shadcn.com/)
 
-To learn more about Next.js, take a look at the following resources:
+### [Após a instalção vem a escolha do tema](https://ui.shadcn.com/themes)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![tema shadcn](./public/themesshadcn.PNG)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### depois basta copiar o codigo do tema e substituir o tema padrão do shadcn no globals.css
 
-## Deploy on Vercel
+### comando fornecido pelo tutorial
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+npm i stripe use-shopping-cart next-sanity @stripe/stripe-js @sanity/image-url --force
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## [sanity.io](https://www.sanity.io/docs/create-a-sanity-project)
+
+```
+npm create sanity@latest -- --template clean --create-project "ecommerce tutorial" --dataset production
+```
