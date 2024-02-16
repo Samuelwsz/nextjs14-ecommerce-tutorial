@@ -28,6 +28,8 @@ bun dev
 
 [button shadcn](https://ui.shadcn.com/docs/components/button)
 
+[sheet shadcn](https://ui.shadcn.com/docs/components/sheet)
+
 ## comando fornecido pelo tutorial
 
 ```bash
@@ -68,7 +70,6 @@ const builder = imageUrlBuilder(client)
 export function urlFor(source: any) {
   return builder.image(source)
 }
-
 ```
 
 ### Em next.config.mjs adicione o comando para aparecer as imagens do sanity
@@ -77,4 +78,46 @@ export function urlFor(source: any) {
  images: {
     domains: ["cdn.sanity.io"],
   },
+```
+
+## [Stripe](https://stripe.com/br)
+
+### Foi criado um componente Providers.tsx para integrar o stripe
+
+```bash
+"use client"
+
+import { ReactNode } from "react"
+import { CartProvider as USCProvider } from "use-shopping-cart"
+
+export default function CartProvider({ children }: { children: ReactNode }) {
+  return (
+    <USCProvider
+      mode="payment"
+      cartMode="client-only"
+      stripe={process.env.NEXT_PUBLIC_STRIPE_KEY as string}
+      successUrl="http://localhost:3000/success"
+      cancelUrl="http://localhost:3000/error"
+      currency="USD"
+      billingAddressCollection={false}
+      shouldPersist={true}
+      language="en-US"
+    >
+      {children}
+    </USCProvider>
+  )
+}
+```
+
+### Depois em layout.tsx adicione o CartProvider
+
+```bash
+ <html lang="en">
+      <body className={inter.className}>
+        <CartProvider>
+          <Navbar />
+          {children}
+        </CartProvider>
+      </body>
+  </html>
 ```
