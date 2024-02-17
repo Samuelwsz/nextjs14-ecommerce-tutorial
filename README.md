@@ -112,6 +112,8 @@ export default function CartProvider({ children }: { children: ReactNode }) {
 ### Depois em layout.tsx adicione o CartProvider
 
 ```bash
+ import CartProvider from "./components/Providers"
+
  <html lang="en">
       <body className={inter.className}>
         <CartProvider>
