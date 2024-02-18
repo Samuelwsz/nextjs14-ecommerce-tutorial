@@ -123,3 +123,6 @@ export default function CartProvider({ children }: { children: ReactNode }) {
       </body>
   </html>
 ```
+#### Na página do stripe na parte Desenvolvedores, em Chaves da API copie a key da api e cole no .env
+
+#### Depois clique em mais e adicione os produtos
